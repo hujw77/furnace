@@ -63,10 +63,10 @@ interface FST {
 	function smelt(uint256 _index, uint256[] calldata _ids, uint256[] calldata _values) external returns (uint256);
 	// {
 	// 	### smelt
-	// 	1. check Formula rule by index
+	//  1. check Formula rule by index
 	//  2. transfer FTs and NFTs to address(this)
-	// 	3. track FTs NFTs to new NFT
-	// 	4. mint new NFT to caller 
+	//  3. track FTs NFTs to new NFT
+	//  4. mint new NFT to caller 
 	// }
 
 	/**
@@ -81,9 +81,9 @@ interface FST {
 	// {
 	// 	### disenchant
 	//  1. tranfer _id to address(this)
-	// 	2. burn new NFT
-	// 	3. delete track FTs NFTs to new NFT
-	// 	4. transfer FN NFT to owner
+	//  2. burn new NFT
+	//  3. delete track FTs NFTs to new NFT
+	//  4. transfer FN NFT to owner
 	// }
 	
 }
