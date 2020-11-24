@@ -21,7 +21,8 @@ interface FST {
 	// 	address[] fts;
 	// 	uint256[] mins;
 	// 	uint256[] maxs;
-	//  bool   disable;
+	// 	bool canDisenchant;
+	// 	bool   disable;
 	// }
 
 	 /**
@@ -35,8 +36,9 @@ interface FST {
         @param _fts     FT Token addresses is required to smlet.
         @param _mins    FT Token min amounts is required to smlet(order and length must match `_fts`).
         @param _maxs    FT Token max amounts is required to smlet(order and length must match `_fts`).
+        @param _canDisenchant    New smleted NFT can disenchant or not.
     */
-	function addFormula(address[] _nfts, uint256[] _class, address[] _fts, uint256[] mins, uint256[] max[]) external;
+	function addFormula(address[] _nfts, uint256[] _class, address[] _fts, uint256[] mins, uint256[] max[], bool _canDisenchant) external;
 
 
 	 /**
