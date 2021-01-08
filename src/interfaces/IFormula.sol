@@ -22,10 +22,10 @@ interface IFormula {
 
 		// major material info
 		// [address token, uint16 objectClassExt, uint16 class, uint16 grade]
-		bytes32[] majors;
+		bytes32 majors;
 		// minor material info
-		bytes32[] minors;
-		uint256[] amounts;
+		bytes32 minors;
+		uint256 amounts;
 		bool disable;
 	}
 
@@ -37,9 +37,9 @@ interface IFormula {
 		uint16 class,
 		uint16 grade,
 		bool canDisenchant,
-		bytes32[] majors,
-		bytes32[] minors,
-		uint256[] amounts
+		bytes32 majors,
+		bytes32 minors,
+		uint256 amounts
 	);
 	event DisableFormula(uint256 indexed index);
 	event EnableFormula(uint256 indexed index);
@@ -62,9 +62,9 @@ interface IFormula {
 		uint16 _class,
 		uint16 _grade,
 		bool _canDisenchant,
-		bytes32[] calldata _majors,
-		bytes32[] calldata _minors,
-		uint256[] calldata _amounts
+		bytes32 _majors,
+		bytes32 _minors,
+		uint256 _amounts
 	) external;
 
 	/**
@@ -97,7 +97,7 @@ interface IFormula {
 	/**
         @dev returns the major material of the formula.
      */
-	function getMajors(uint256 _index) external view returns (bytes32[] memory);
+	function getMajors(uint256 _index) external view returns (bytes32);
 
 	/**
         @dev returns the minor material of the formula.
@@ -105,7 +105,7 @@ interface IFormula {
 	function getMinors(uint256 _index)
 		external
 		view
-		returns (bytes32[] memory, uint256[] memory);
+		returns (bytes32, uint256);
 
 	/**
         @dev Decode major info of the major.
@@ -155,7 +155,7 @@ interface IFormula {
 	function getMajorAddresses(uint256 _index)
 		external
 		view
-		returns (address[] memory);
+		returns (address);
 
 	/**
         @dev returns canDisenchant of the formula.

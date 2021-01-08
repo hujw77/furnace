@@ -14,7 +14,7 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		uint128 rate 
 	);
 
-	event SetAmounts(uint256 indexed index, uint256[] amounts);
+	event SetAmounts(uint256 indexed index, uint256 amounts);
 
 	/*** STORAGE ***/
 
@@ -32,9 +32,9 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		uint16 _class,
 		uint16 _grade,
 		bool _canDisenchant,
-		bytes32[] calldata _majors,
-		bytes32[] calldata _minors,
-		uint256[] calldata _amounts
+		bytes32 _majors,
+		bytes32 _minors,
+		uint256 _amounts
 	) external override auth {
 		FormulaEntry memory formula =
 			FormulaEntry({
@@ -86,7 +86,7 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		emit SetStrength(_index, formula.rate);
 	}
 
-	function setAmounts(uint256 _index, uint256[] calldata _amounts)
+	function setAmounts(uint256 _index, uint256 _amounts)
 		external
 		auth
 	{
@@ -109,7 +109,7 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		external
 		view
 		override
-		returns (bytes32[] memory)
+		returns (bytes32)
 	{
 		require(_index < formulas.length, "Formula: OUT_OF_RANGE");
 		return formulas[_index].majors;
@@ -119,7 +119,7 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		external
 		view
 		override
-		returns (bytes32[] memory, uint256[] memory)
+		returns (bytes32, uint256)
 	{
 		require(_index < formulas.length, "Formula: OUT_OF_RANGE");
 		return (formulas[_index].minors, formulas[_index].amounts);
@@ -129,15 +129,11 @@ contract Formula is Initializable, DSAuth, FurnaceSettingIds, IFormula {
 		external
 		view
 		override
-		returns (address[] memory)
+		returns (address)
 	{
 		FormulaEntry memory formula = formulas[_index];
-		address[] memory majorAddresses = new address[](formula.majors.length);
-		for (uint256 i = 0; i < formula.majors.length; i++) {
-			(address majorAddress, , , ) = getMajorInfo(formula.majors[i]);
-			majorAddresses[i] = majorAddress;
-		}
-		return majorAddresses;
+		(address majorAddress, , , ) = getMajorInfo(formula.majors);
+		return majorAddress;
 	}
 
 	function getDisenchant(uint256 _index)

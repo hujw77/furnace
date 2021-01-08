@@ -17,11 +17,11 @@ interface IELIP002 {
 		// element prefer
 		uint16 prefer;
 		// ids of major material
-		uint256[] ids;
+		uint256 id;
 		// addresses of major material
-		address[] tokens;
+		address token;
 		// amounts of minor material
-		uint256[] amounts;
+		uint256 amount;
 	}
 
 	/**
@@ -48,9 +48,9 @@ interface IELIP002 {
 		uint16 class,
 		uint16 grade,
 		uint16 prefer,
-		uint256[] ids,
-		address[] tokens,
-		uint256[] amounts,
+		uint256 ids,
+		address tokens,
+		uint256 amounts,
 		uint256 now
 	);
 
@@ -66,10 +66,10 @@ interface IELIP002 {
 	event Disenchanted(
 		address indexed user,
 		uint256 tokenId,
-		address[] majors,
-		uint256[] ids,
-		address[] minors,
-		uint256[] amounts
+		address majors,
+		uint256 ids,
+		address minors,
+		uint256 amounts
 	);
 
 	/**
@@ -87,8 +87,8 @@ interface IELIP002 {
     */
 	function enchant(
 		uint256 _index,
-		uint256[] calldata _ids,
-		address[] calldata _tokens
+		uint256 _ids,
+		address _tokens
 	) external returns (uint256);
 
 	// {
