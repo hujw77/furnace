@@ -18,7 +18,6 @@ make flat
 | Formula_Proxy | Formula.sol |[Formula.abi](https://github.com/hujw77/furnance/tree/main/abi/Formula.abi) | [0xD6043B6f1Bc85Ab687d5d3f21ecBa22998b2a1CD] |
 | ItemBase_Proxy | ItemBase.sol |[ItemBase.abi](https://github.com/hujw77/furnance/tree/main/abi/ItemBase.abi) | [0x276df4C90Decf023193A2427460Fce36dD47A03D] |
 | MetaDataTeller_Proxy | MetaDataTeller.sol |[MetaDataTeller.abi](https://github.com/hujw77/furnance/tree/main/abi/MetaDataTeller.abi) | [0x569B50BCC9DdF07626bAAa0C3C55cF509f4A34eA] |
-| GegoToken | GegoToken | [GegoToken](https://github.com/hujw77/furnance/tree/main/abi/GegoToken.abi) | [0x1c9c177e5d70e754848eafd1d48c113c5180c0e3] |
 
 ### Ropsten
 
