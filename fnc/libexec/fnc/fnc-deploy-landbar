@@ -5,6 +5,8 @@ set -e
 # shellcheck source=lib/common.sh
 . "${0%/*}/../../lib/common.sh"
 
+loadAddresses
+
 LANDITEMBAR=$(dapp create src/LandItemBar.sol:LandItemBar)
 addAddress "LANDITEMBAR" "$LANDITEMBAR"
 echo >&2 "${0##*/}: info: LandItemBar created."
